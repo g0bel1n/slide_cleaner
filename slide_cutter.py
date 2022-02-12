@@ -7,7 +7,7 @@ def cut(filename):
     pages = convert_from_path(filename)
     differentiated_pages=[]
     for i in tqdm(range(1,len(pages))):
-        differentiated_pages.append([np.count_nonzero(np.asarray(pages[i])-np.asarray(pages[i-1])),i,np.asarray(pages[i])-np.asarray(pages[i-1])])
+        differentiated_pages.append([np.count_nonzero(np.asarray(pages[i])-np.asarray(pages[i-1])),i])
 
     idx_to_save = [page[1]-1 for page in differentiated_pages if page[0]>60000] + [len(pages)-1]
 
